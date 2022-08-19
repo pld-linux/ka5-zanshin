@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.3
+%define		kdeappsver	22.08.0
 %define		qtver		5.15.2
 %define		kf5ver		5.71.0
 %define		kaname		zanshin
 Summary:	A Getting Things Done application
 Name:		ka5-%{kaname}
-Version:	22.04.3
+Version:	22.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	a431e2af425509a3667f019098486fa9
+# Source0-md5:	862a3e20612e0e0cd9e85c6d5807ebce
 URL:		http://www.kde.org/
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
@@ -74,7 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS HACKING TODO
 %attr(755,root,root) %{_bindir}/zanshin
 %attr(755,root,root) %{_bindir}/zanshin-migrator
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_zanshinplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/krunner_zanshin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/zanshin_part.so
 %{_desktopdir}/org.kde.zanshin.desktop
@@ -88,3 +87,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/zanshin_part.desktop
 %{_datadir}/kxmlgui5/zanshin
 %{_datadir}/metainfo/org.kde.zanshin.metainfo.xml
+%{_libdir}/qt5/plugins/pim5/kontact/kontact_zanshinplugin.so
