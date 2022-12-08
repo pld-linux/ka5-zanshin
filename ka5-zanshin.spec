@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.08.3
+%define		kdeappsver	22.12.0
 %define		qtver		5.15.2
 %define		kf5ver		5.71.0
 %define		kaname		zanshin
 Summary:	A Getting Things Done application
 Name:		ka5-%{kaname}
-Version:	22.08.3
+Version:	22.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	2369d9ccf95cecf29f7c13fe3d97da54
+# Source0-md5:	69854d52c73b217549f4d5a4c6d3240f
 URL:		http://www.kde.org/
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
@@ -82,7 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/zanshin.png
 %{_iconsdir}/hicolor/64x64/apps/zanshin.png
 %{_iconsdir}/hicolor/scalable/apps/zanshin.svgz
-%{_datadir}/kservices5/kontact/zanshin_plugin.desktop
 %{_datadir}/kservices5/plasma-runner-zanshin.desktop
 %{_datadir}/kservices5/zanshin_part.desktop
 %{_datadir}/kxmlgui5/zanshin
