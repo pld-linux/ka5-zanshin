@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.04.2
+%define		kdeappsver	23.04.3
 %define		qtver		5.15.2
 %define		kf5ver		5.71.0
 %define		kaname		zanshin
 Summary:	A Getting Things Done application
 Name:		ka5-%{kaname}
-Version:	23.04.2
+Version:	23.04.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	92b3c5de91dec567f0dfa9cf60786320
+# Source0-md5:	41fe0def2096572185a7b4882d9216ae
 URL:		http://www.kde.org/
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
