@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.04.3
+%define		kdeappsver	23.08.0
 %define		qtver		5.15.2
 %define		kf5ver		5.71.0
 %define		kaname		zanshin
 Summary:	A Getting Things Done application
 Name:		ka5-%{kaname}
-Version:	23.04.3
+Version:	23.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	41fe0def2096572185a7b4882d9216ae
+# Source0-md5:	b50fb6123af48d933e4ed349266dffe6
 URL:		http://www.kde.org/
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
@@ -45,18 +45,16 @@ Wikipedia](https://en.wikipedia.org/wiki/Zanshin))
 %setup -q -n %{kaname}-%{version}
 
 %build
-install -d build
-cd build
 %cmake \
+	-B build \
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	..
-%ninja_build
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+%ninja_build -C build
 
 %if %{with tests}
-ctest
+ctest --test-dir build
 %endif
 
 
