@@ -1,37 +1,37 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		qtver		5.15.2
 %define		kf5ver		5.71.0
 %define		kaname		zanshin
 Summary:	A Getting Things Done application
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	b30b593889842982d764b9a18090783c
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	bde276ccc92c404d866e6a5acfe77079
 URL:		http://www.kde.org/
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
 BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
 BuildRequires:	ka5-kontactinterface-devel >= %{kdeappsver}
-BuildRequires:	kf6-ki18n-devel >= 5.93.0
-BuildRequires:	kf6-krunner-devel >= 5.93.0
-BuildRequires:	kf6-kwindowsystem-devel >= 5.93.0
+BuildRequires:	kf5-ki18n-devel >= 5.93.0
+BuildRequires:	kf5-krunner-devel >= 5.93.0
+BuildRequires:	kf5-kwindowsystem-devel >= 5.93.0
 BuildRequires:	libstdc++-devel >= 6:8
 BuildRequires:	ninja
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
-Requires:	Qt6Core >= %{qtver}
-Requires:	Qt6DBus >= %{qtver}
-Requires:	Qt6PrintSupport >= %{qtver}
-Requires:	Qt6Widgets >= %{qtver}
+Requires:	Qt5Core >= %{qtver}
+Requires:	Qt5DBus >= %{qtver}
+Requires:	Qt5PrintSupport >= %{qtver}
+Requires:	Qt5Widgets >= %{qtver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -72,10 +72,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS HACKING TODO
 %attr(755,root,root) %{_bindir}/zanshin
 %attr(755,root,root) %{_bindir}/zanshin-migrator
-%attr(755,root,root) %{_libdir}/qt6/plugins/zanshin_part.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/org.kde.zanshin.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_zanshinplugin.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/zanshin_part.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/org.kde.zanshin.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/pim5/kontact/kontact_zanshinplugin.so
 %{_desktopdir}/org.kde.zanshin.desktop
-%{_iconsdir}/hicolor/*x*/apps/zanshin.png
+%{_iconsdir}/hicolor/128x128/apps/zanshin.png
+%{_iconsdir}/hicolor/256x256/apps/zanshin.png
+%{_iconsdir}/hicolor/48x48/apps/zanshin.png
+%{_iconsdir}/hicolor/64x64/apps/zanshin.png
 %{_iconsdir}/hicolor/scalable/apps/zanshin.svgz
+%{_datadir}/kxmlgui5/zanshin
 %{_datadir}/metainfo/org.kde.zanshin.metainfo.xml
